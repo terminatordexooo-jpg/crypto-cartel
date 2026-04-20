@@ -16,6 +16,8 @@
       "hero.meta.date": "Date",
       "hero.meta.doors": "Doors",
       "hero.meta.venue": "Venue",
+      "hero.meta.city": "City",
+      "hero.meta.cityv": "Warsaw",
       "hero.cta.claim": "Claim a Seat",
       "hero.cta.what": "What is this?",
 
@@ -79,6 +81,7 @@
       "venue.address": "Address",
       "venue.addressv": "Revealed with ticket",
       "venue.city": "City",
+      "venue.cityv": "Warsaw · PL",
       "venue.transfer": "Transfer",
       "venue.transferv": "On request",
 
@@ -121,6 +124,8 @@
       "hero.meta.date": "Дата",
       "hero.meta.doors": "Открытие",
       "hero.meta.venue": "Место",
+      "hero.meta.city": "Локация",
+      "hero.meta.cityv": "Варшава",
       "hero.cta.claim": "Забронировать место",
       "hero.cta.what": "Что это?",
 
@@ -184,6 +189,7 @@
       "venue.address": "Адрес",
       "venue.addressv": "Открывается с билетом",
       "venue.city": "Город",
+      "venue.cityv": "Варшава · PL",
       "venue.transfer": "Трансфер",
       "venue.transferv": "По запросу",
 
