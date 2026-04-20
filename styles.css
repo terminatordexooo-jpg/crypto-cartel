@@ -259,6 +259,42 @@ a { color: inherit; text-decoration: none; }
 .hero__word { display: block; }
 .hero__word:nth-child(2) { color: #eafff4; letter-spacing: 0.06em; }
 
+/* Type-in reveal — each letter fades + slides up with a blur drop */
+.hero__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.25em);
+  filter: blur(10px);
+  animation: heroCharIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes heroCharIn {
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+/* Blinking cursor that trails each word, then vanishes */
+.hero__cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.82em;
+  vertical-align: -0.05em;
+  margin-left: 0.08em;
+  background: var(--green);
+  box-shadow: 0 0 18px rgba(15, 227, 155, 0.7);
+  opacity: 0;
+  animation:
+    heroCursorShow 0.01s forwards,
+    heroCursorBlink 0.55s steps(1) infinite,
+    heroCursorHide 0.3s ease forwards 0.9s;
+}
+@keyframes heroCursorShow { to { opacity: 1; } }
+@keyframes heroCursorBlink {
+  50% { opacity: 0; }
+}
+@keyframes heroCursorHide { to { opacity: 0; width: 0; margin: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero__char { opacity: 1; transform: none; filter: none; animation: none; }
+  .hero__cursor { display: none; }
+}
+
 .hero__tag {
   color: var(--ink-dim);
   max-width: 58ch; margin: 0 auto 34px;

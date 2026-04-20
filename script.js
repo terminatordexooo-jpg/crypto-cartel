@@ -1,5 +1,32 @@
 // CRYPTO CARTEL — light interactions
 
+// Hero title — staggered type-in on load ("CRYPTO" then "CARTEL", char by char)
+(function typeHero() {
+  const words = document.querySelectorAll(".hero__word");
+  if (!words.length) return;
+  const CHAR_STEP = 0.07;   // seconds between letters
+  const WORD_GAP  = 0.18;   // extra pause between words
+  let delay = 0.15;         // initial lead-in
+  words.forEach(word => {
+    const text = word.textContent;
+    word.textContent = "";
+    [...text].forEach(ch => {
+      const span = document.createElement("span");
+      span.className = "hero__char";
+      span.textContent = ch;
+      span.style.animationDelay = delay.toFixed(2) + "s";
+      word.appendChild(span);
+      delay += CHAR_STEP;
+    });
+    // trailing blinking cursor on each word while typing
+    const cursor = document.createElement("span");
+    cursor.className = "hero__cursor";
+    cursor.style.animationDelay = (delay - CHAR_STEP).toFixed(2) + "s";
+    word.appendChild(cursor);
+    delay += WORD_GAP;
+  });
+})();
+
 // countdown to 17 May 2026, 19:00 CET
 (function countdown() {
   const target = new Date("2026-05-17T19:00:00+02:00").getTime();
