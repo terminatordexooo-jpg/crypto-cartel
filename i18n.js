@@ -93,7 +93,7 @@
       "rsvp.why": "Why you",
       "rsvp.why.ph": "One sentence is enough.",
       "rsvp.ticket": "Ticket",
-      "rsvp.submit": "Send request",
+      "rsvp.submit": "Buy tickets",
       "rsvp.ok": "Request received. The host will reply within 48h.",
 
       "footer.copy": "© 2026 A01K Connect. Invite only.",
@@ -198,7 +198,7 @@
       "rsvp.why": "Почему вы",
       "rsvp.why.ph": "Одного предложения достаточно.",
       "rsvp.ticket": "Билет",
-      "rsvp.submit": "Отправить заявку",
+      "rsvp.submit": "Купить билеты",
       "rsvp.ok": "Заявка получена. Хост ответит в течение 48 часов.",
 
       "footer.copy": "© 2026 A01K Connect. Только по приглашению.",
