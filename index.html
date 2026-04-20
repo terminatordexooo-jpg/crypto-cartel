@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CRYPTO CARTEL — A01K Connect · 17.05.2026 · Baila Show &amp; Dining</title>
-<meta name="description" content="CRYPTO CARTEL — a private night by A01K Connect. Baila Show & Dining · 17 May 2026 · 19:00 CET. Poker, crypto, jungle vibes." />
+<meta name="theme-color" content="#05080a" />
+<title data-i18n="meta.title">CRYPTO CARTEL — A01K Connect · 17.05.2026 · Baila Show &amp; Dining</title>
+<meta name="description" data-i18n-attr="description" data-i18n="meta.description" content="CRYPTO CARTEL — a private night by A01K Connect. Baila Show & Dining · 17 May 2026 · 19:00 CET. Poker, crypto, jungle vibes." />
 <meta property="og:title" content="CRYPTO CARTEL — A01K Connect" />
 <meta property="og:description" content="Private crypto night · 17 May 2026 · Baila Show & Dining" />
 <meta property="og:image" content="assets/ticket.png" />
@@ -25,12 +26,19 @@
     <span class="nav__sub">CONNECT</span>
   </a>
   <ul class="nav__links">
-    <li><a href="#event">Event</a></li>
-    <li><a href="#tickets">Tickets</a></li>
-    <li><a href="#partners">Partners</a></li>
-    <li><a href="#venue">Venue</a></li>
+    <li><a href="#event" data-i18n="nav.event">Event</a></li>
+    <li><a href="#tickets" data-i18n="nav.tickets">Tickets</a></li>
+    <li><a href="#partners" data-i18n="nav.partners">Partners</a></li>
+    <li><a href="#venue" data-i18n="nav.venue">Venue</a></li>
   </ul>
-  <a href="#tickets" class="btn btn--ghost nav__cta">Get Access</a>
+  <div class="nav__right">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" class="lang__btn is-active" data-lang="en">EN</button>
+      <span class="lang__sep">·</span>
+      <button type="button" class="lang__btn" data-lang="ru">RU</button>
+    </div>
+    <a href="#tickets" class="btn btn--ghost nav__cta" data-i18n="nav.cta">Get Access</a>
+  </div>
 </nav>
 
 <header id="top" class="hero">
@@ -39,38 +47,38 @@
   <div class="hero__glow" aria-hidden="true"></div>
 
   <div class="hero__inner">
-    <p class="eyebrow">A01K CONNECT · PRIVATE NIGHT</p>
+    <p class="eyebrow" data-i18n="hero.eyebrow">A01K CONNECT · PRIVATE NIGHT</p>
     <h1 class="hero__title">
       <span class="hero__word">CRYPTO</span>
       <span class="hero__word">CARTEL</span>
     </h1>
-    <p class="hero__tag">Where crypto meets jungle · poker tables, spiced rum and signal in the noise.</p>
+    <p class="hero__tag" data-i18n="hero.tag">Where crypto meets jungle · poker tables, spiced rum and signal in the noise.</p>
 
     <div class="hero__meta">
       <div class="meta">
-        <span class="meta__k">Date</span>
+        <span class="meta__k" data-i18n="hero.meta.date">Date</span>
         <span class="meta__v">17 · 05 · 2026</span>
       </div>
       <div class="meta">
-        <span class="meta__k">Doors</span>
+        <span class="meta__k" data-i18n="hero.meta.doors">Doors</span>
         <span class="meta__v">19:00 CET</span>
       </div>
       <div class="meta">
-        <span class="meta__k">Venue</span>
+        <span class="meta__k" data-i18n="hero.meta.venue">Venue</span>
         <span class="meta__v">Baila Show &amp; Dining</span>
       </div>
     </div>
 
     <div class="hero__cta">
-      <a href="#tickets" class="btn btn--primary">Claim a Seat</a>
-      <a href="#event" class="btn btn--ghost">What is this?</a>
+      <a href="#tickets" class="btn btn--primary" data-i18n="hero.cta.claim">Claim a Seat</a>
+      <a href="#event" class="btn btn--ghost" data-i18n="hero.cta.what">What is this?</a>
     </div>
 
     <div class="countdown" id="countdown" aria-live="polite">
-      <div class="countdown__cell"><span class="countdown__num" data-unit="days">00</span><span class="countdown__lbl">days</span></div>
-      <div class="countdown__cell"><span class="countdown__num" data-unit="hours">00</span><span class="countdown__lbl">hours</span></div>
-      <div class="countdown__cell"><span class="countdown__num" data-unit="minutes">00</span><span class="countdown__lbl">minutes</span></div>
-      <div class="countdown__cell"><span class="countdown__num" data-unit="seconds">00</span><span class="countdown__lbl">seconds</span></div>
+      <div class="countdown__cell"><span class="countdown__num" data-unit="days">00</span><span class="countdown__lbl" data-i18n="countdown.days">days</span></div>
+      <div class="countdown__cell"><span class="countdown__num" data-unit="hours">00</span><span class="countdown__lbl" data-i18n="countdown.hours">hours</span></div>
+      <div class="countdown__cell"><span class="countdown__num" data-unit="minutes">00</span><span class="countdown__lbl" data-i18n="countdown.minutes">minutes</span></div>
+      <div class="countdown__cell"><span class="countdown__num" data-unit="seconds">00</span><span class="countdown__lbl" data-i18n="countdown.seconds">seconds</span></div>
     </div>
   </div>
 </header>
@@ -78,9 +86,9 @@
 <section id="event" class="section section--about">
   <div class="container grid-2">
     <div>
-      <p class="eyebrow">The night</p>
-      <h2 class="h2">A closed table for the ones who trade in conviction.</h2>
-      <p class="lead">
+      <p class="eyebrow" data-i18n="about.eyebrow">The night</p>
+      <h2 class="h2" data-i18n="about.h2">A closed table for the ones who trade in conviction.</h2>
+      <p class="lead" data-i18n="about.lead">
         CRYPTO CARTEL is an invite-only gathering by A01K Connect — founders,
         traders, builders and operators sharing one table, one deck, one
         long night. No pitch decks. No stage lights. Just poker, mezcal,
@@ -88,74 +96,74 @@
       </p>
 
       <ul class="features">
-        <li><span class="features__dot"></span>Curated guest list · 80 seats</li>
-        <li><span class="features__dot"></span>Live show &amp; chef tasting menu</li>
-        <li><span class="features__dot"></span>Tournament poker — buy-in included</li>
-        <li><span class="features__dot"></span>On-chain entry · QR ticket gating</li>
+        <li><span class="features__dot"></span><span data-i18n="about.features.1">Curated guest list · 80 seats</span></li>
+        <li><span class="features__dot"></span><span data-i18n="about.features.2">Live show &amp; chef tasting menu</span></li>
+        <li><span class="features__dot"></span><span data-i18n="about.features.3">Tournament poker — buy-in included</span></li>
+        <li><span class="features__dot"></span><span data-i18n="about.features.4">On-chain entry · QR ticket gating</span></li>
       </ul>
     </div>
 
     <aside class="card">
-      <div class="card__row"><span>Format</span><b>Private night</b></div>
-      <div class="card__row"><span>Capacity</span><b>80 guests</b></div>
-      <div class="card__row"><span>Dress code</span><b>Smart · dark palette</b></div>
-      <div class="card__row"><span>Language</span><b>EN · RU</b></div>
-      <div class="card__row"><span>Access</span><b>QR + whitelist</b></div>
-      <div class="card__row card__row--accent"><span>Host</span><b>A01K&nbsp;CONNECT</b></div>
+      <div class="card__row"><span data-i18n="about.card.format">Format</span><b data-i18n="about.card.formatv">Private night</b></div>
+      <div class="card__row"><span data-i18n="about.card.capacity">Capacity</span><b data-i18n="about.card.capacityv">80 guests</b></div>
+      <div class="card__row"><span data-i18n="about.card.dress">Dress code</span><b data-i18n="about.card.dressv">Smart · dark palette</b></div>
+      <div class="card__row"><span data-i18n="about.card.lang">Language</span><b>EN · RU</b></div>
+      <div class="card__row"><span data-i18n="about.card.access">Access</span><b data-i18n="about.card.accessv">QR + whitelist</b></div>
+      <div class="card__row card__row--accent"><span data-i18n="about.card.host">Host</span><b>A01K&nbsp;CONNECT</b></div>
     </aside>
   </div>
 </section>
 
 <section id="tickets" class="section section--tickets">
   <div class="container">
-    <p class="eyebrow centered">Tickets</p>
-    <h2 class="h2 centered">Three ways to enter the room.</h2>
+    <p class="eyebrow centered" data-i18n="tickets.eyebrow">Tickets</p>
+    <h2 class="h2 centered" data-i18n="tickets.h2">Three ways to enter the room.</h2>
 
     <div class="tickets">
       <article class="ticket">
-        <div class="ticket__tag">Observer</div>
+        <div class="ticket__tag" data-i18n="tickets.observer.tag">Observer</div>
         <div class="ticket__price"><span>€</span>180</div>
         <ul class="ticket__list">
-          <li>Show &amp; dining access</li>
-          <li>Welcome drink</li>
-          <li>No table seat</li>
-          <li>General whitelist</li>
+          <li data-i18n="tickets.observer.1">Show &amp; dining access</li>
+          <li data-i18n="tickets.observer.2">Welcome drink</li>
+          <li data-i18n="tickets.observer.3">No table seat</li>
+          <li data-i18n="tickets.observer.4">General whitelist</li>
         </ul>
-        <a href="#rsvp" class="btn btn--ghost ticket__cta">Request</a>
+        <a href="#rsvp" class="btn btn--ghost ticket__cta" data-i18n="tickets.observer.cta">Request</a>
       </article>
 
       <article class="ticket ticket--featured">
-        <div class="ticket__tag">Player</div>
+        <div class="ticket__tag" data-i18n="tickets.player.tag">Player</div>
         <div class="ticket__price"><span>€</span>450</div>
         <ul class="ticket__list">
-          <li>Poker table seat</li>
-          <li>Tournament buy-in</li>
-          <li>Tasting menu · open bar</li>
-          <li>Priority whitelist</li>
+          <li data-i18n="tickets.player.1">Poker table seat</li>
+          <li data-i18n="tickets.player.2">Tournament buy-in</li>
+          <li data-i18n="tickets.player.3">Tasting menu · open bar</li>
+          <li data-i18n="tickets.player.4">Priority whitelist</li>
         </ul>
-        <a href="#rsvp" class="btn btn--primary ticket__cta">Claim seat</a>
-        <div class="ticket__ribbon">MOST TAKEN</div>
+        <a href="#rsvp" class="btn btn--primary ticket__cta" data-i18n="tickets.player.cta">Claim seat</a>
+        <div class="ticket__ribbon" data-i18n="tickets.player.ribbon">MOST TAKEN</div>
       </article>
 
       <article class="ticket">
-        <div class="ticket__tag">Capo</div>
+        <div class="ticket__tag" data-i18n="tickets.capo.tag">Capo</div>
         <div class="ticket__price"><span>€</span>1 200</div>
         <ul class="ticket__list">
-          <li>Premium table + +1 seat</li>
-          <li>Private lounge access</li>
-          <li>Host introductions</li>
-          <li>After-hours room</li>
+          <li data-i18n="tickets.capo.1">Premium table + +1 seat</li>
+          <li data-i18n="tickets.capo.2">Private lounge access</li>
+          <li data-i18n="tickets.capo.3">Host introductions</li>
+          <li data-i18n="tickets.capo.4">After-hours room</li>
         </ul>
-        <a href="#rsvp" class="btn btn--ghost ticket__cta">Apply</a>
+        <a href="#rsvp" class="btn btn--ghost ticket__cta" data-i18n="tickets.capo.cta">Apply</a>
       </article>
     </div>
 
     <div class="ticket-preview">
       <img src="assets/ticket.png" alt="CRYPTO CARTEL ticket preview" loading="lazy" />
       <div>
-        <p class="eyebrow">Ticket</p>
-        <h3 class="h3">Every ticket is a QR-gated pass.</h3>
-        <p class="muted">
+        <p class="eyebrow" data-i18n="ticketPreview.eyebrow">Ticket</p>
+        <h3 class="h3" data-i18n="ticketPreview.h3">Every ticket is a QR-gated pass.</h3>
+        <p class="muted" data-i18n="ticketPreview.body">
           Scanned at the door. Non-transferable. Whitelist closes
           48 hours before the event.
         </p>
@@ -166,8 +174,8 @@
 
 <section id="partners" class="section section--partners">
   <div class="container">
-    <p class="eyebrow centered">Partners</p>
-    <h2 class="h2 centered">Building the night together.</h2>
+    <p class="eyebrow centered" data-i18n="partners.eyebrow">Partners</p>
+    <h2 class="h2 centered" data-i18n="partners.h2">Building the night together.</h2>
 
     <div class="partners">
       <a class="partner" href="#" aria-label="startem">
@@ -175,18 +183,18 @@
         <span class="partner__name">startem</span>
       </a>
       <div class="partner partner--placeholder">
-        <span class="partner__name">Soon</span>
+        <span class="partner__name" data-i18n="partners.soon">Soon</span>
       </div>
       <div class="partner partner--placeholder">
-        <span class="partner__name">Soon</span>
+        <span class="partner__name" data-i18n="partners.soon">Soon</span>
       </div>
       <div class="partner partner--placeholder">
-        <span class="partner__name">Soon</span>
+        <span class="partner__name" data-i18n="partners.soon">Soon</span>
       </div>
     </div>
 
     <p class="muted centered small">
-      Want to partner? <a class="link" href="mailto:partners@a01k.connect">partners@a01k.connect</a>
+      <span data-i18n="partners.want">Want to partner?</span> <a class="link" href="mailto:partners@a01k.connect">partners@a01k.connect</a>
     </p>
   </div>
 </section>
@@ -194,16 +202,16 @@
 <section id="venue" class="section section--venue">
   <div class="container grid-2 grid-2--reverse">
     <div>
-      <p class="eyebrow">Venue</p>
-      <h2 class="h2">Baila Show &amp; Dining.</h2>
-      <p class="lead">
+      <p class="eyebrow" data-i18n="venue.eyebrow">Venue</p>
+      <h2 class="h2" data-i18n="venue.h2">Baila Show &amp; Dining.</h2>
+      <p class="lead" data-i18n="venue.lead">
         A theatrical dining room hidden behind a jungle facade — live
         performance, tropical plates and a separate salon for the table.
       </p>
       <div class="venue__meta">
-        <div><span>Address</span><b>Revealed with ticket</b></div>
-        <div><span>City</span><b>TBA · EU</b></div>
-        <div><span>Transfer</span><b>On request</b></div>
+        <div><span data-i18n="venue.address">Address</span><b data-i18n="venue.addressv">Revealed with ticket</b></div>
+        <div><span data-i18n="venue.city">City</span><b>TBA · EU</b></div>
+        <div><span data-i18n="venue.transfer">Transfer</span><b data-i18n="venue.transferv">On request</b></div>
       </div>
     </div>
     <div class="venue__visual" aria-hidden="true">
@@ -215,35 +223,35 @@
 
 <section id="rsvp" class="section section--rsvp">
   <div class="container rsvp">
-    <p class="eyebrow">RSVP</p>
-    <h2 class="h2">Request a seat at the table.</h2>
-    <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form__ok').hidden = false; this.reset();">
+    <p class="eyebrow" data-i18n="rsvp.eyebrow">RSVP</p>
+    <h2 class="h2" data-i18n="rsvp.h2">Request a seat at the table.</h2>
+    <form class="form" onsubmit="event.preventDefault(); const ok = this.querySelector('.form__ok'); ok.hidden = false; ok.scrollIntoView({behavior:'smooth', block:'center'}); this.reset();">
       <label>
-        <span>Name</span>
-        <input type="text" name="name" required placeholder="How should the host greet you?" />
+        <span data-i18n="rsvp.name">Name</span>
+        <input type="text" name="name" required data-i18n-placeholder="rsvp.name.ph" placeholder="How should the host greet you?" />
       </label>
       <label>
-        <span>Email or Telegram</span>
-        <input type="text" name="contact" required placeholder="you@domain · @handle" />
+        <span data-i18n="rsvp.contact">Email or Telegram</span>
+        <input type="text" name="contact" required data-i18n-placeholder="rsvp.contact.ph" placeholder="you@domain · @handle" />
       </label>
       <label>
-        <span>Role</span>
-        <input type="text" name="role" placeholder="Founder · Fund · Builder · Guest" />
+        <span data-i18n="rsvp.role">Role</span>
+        <input type="text" name="role" data-i18n-placeholder="rsvp.role.ph" placeholder="Founder · Fund · Builder · Guest" />
       </label>
       <label class="form__full">
-        <span>Why you</span>
-        <textarea name="why" rows="3" placeholder="One sentence is enough."></textarea>
+        <span data-i18n="rsvp.why">Why you</span>
+        <textarea name="why" rows="3" data-i18n-placeholder="rsvp.why.ph" placeholder="One sentence is enough."></textarea>
       </label>
       <label class="form__full form__radio">
-        <span>Ticket</span>
+        <span data-i18n="rsvp.ticket">Ticket</span>
         <div>
-          <label><input type="radio" name="tier" value="observer" /> Observer</label>
-          <label><input type="radio" name="tier" value="player" defaultChecked /> Player</label>
-          <label><input type="radio" name="tier" value="capo" /> Capo</label>
+          <label><input type="radio" name="tier" value="observer" /> <span data-i18n="tickets.observer.tag">Observer</span></label>
+          <label><input type="radio" name="tier" value="player" checked /> <span data-i18n="tickets.player.tag">Player</span></label>
+          <label><input type="radio" name="tier" value="capo" /> <span data-i18n="tickets.capo.tag">Capo</span></label>
         </div>
       </label>
-      <button type="submit" class="btn btn--primary form__submit">Send request</button>
-      <p class="form__ok" hidden>Request received. The host will reply within 48h.</p>
+      <button type="submit" class="btn btn--primary form__submit" data-i18n="rsvp.submit">Send request</button>
+      <p class="form__ok" hidden data-i18n="rsvp.ok">Request received. The host will reply within 48h.</p>
     </form>
   </div>
 </section>
@@ -255,31 +263,32 @@
         <span class="nav__mark">A01K</span>
         <span class="nav__sub">CONNECT</span>
       </div>
-      <p class="muted small">© 2026 A01K Connect. Invite only.</p>
+      <p class="muted small" data-i18n="footer.copy">© 2026 A01K Connect. Invite only.</p>
     </div>
     <div class="footer__cols">
       <div>
-        <h4>Event</h4>
-        <a href="#event">About</a>
-        <a href="#tickets">Tickets</a>
-        <a href="#venue">Venue</a>
+        <h4 data-i18n="footer.event">Event</h4>
+        <a href="#event" data-i18n="footer.about">About</a>
+        <a href="#tickets" data-i18n="nav.tickets">Tickets</a>
+        <a href="#venue" data-i18n="nav.venue">Venue</a>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-i18n="footer.contact">Contact</h4>
         <a href="mailto:hello@a01k.connect">hello@a01k.connect</a>
         <a href="mailto:partners@a01k.connect">partners@a01k.connect</a>
-        <a href="#">Telegram</a>
+        <a href="#" data-i18n="footer.telegram">Telegram</a>
       </div>
       <div>
-        <h4>Legal</h4>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Code of conduct</a>
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.conduct">Code of conduct</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
