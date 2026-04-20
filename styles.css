@@ -538,73 +538,9 @@ a { color: inherit; text-decoration: none; }
 .form__full { grid-column: 1 / -1; }
 .form__radio > div { display: flex; gap: 18px; flex-wrap: wrap; padding-top: 4px; }
 .form__radio label { flex-direction: row; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-dim); }
-.jelly-submit {
+.form__submit {
   grid-column: 1 / -1;
-  justify-self: center;
-  width: 100%;
-  max-width: 520px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-top: 18px;
-}
-.jelly-submit__stage {
-  width: 100%;
-  max-width: 520px;
-  min-width: 280px;
-  cursor: pointer;
-  outline: none;
-}
-.jelly-submit__stage:focus-visible {
-  box-shadow: 0 0 0 3px rgba(15, 227, 155, 0.55);
-}
-.jelly-submit__hint {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-  margin: 0;
-  opacity: 0;
-  transition: opacity .6s ease .2s;
-}
-.jelly-submit__stage.is-ready ~ .jelly-submit__hint,
-.jelly-submit .jelly__stage.is-ready + .jelly-submit__hint { opacity: .65; }
-.jelly-submit__real {
-  position: absolute;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0);
-  white-space: nowrap; border: 0;
-}
-
-/* Armed-state: subtle green glow on the whole stage */
-.jelly-submit__stage.is-armed {
-  filter: drop-shadow(0 0 24px rgba(15, 227, 155, 0.55));
-  transition: filter .25s ease;
-}
-
-/* Blend jelly into the dark site: kill the grey panel, fade canvas edges.
-   Keep overflow:hidden so the draggable's y-translate stays clipped inside
-   the stage and the whole block doesn't visually shift while squeezing. */
-.jelly-submit__stage.finale__stage {
-  background: transparent;
-  box-shadow: none;
-}
-.jelly-submit__stage.finale__stage::after { display: none; }
-.jelly-submit__stage .finale__canvas {
-  -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 78%);
-          mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 78%);
-}
-
-/* Send pulse */
-.jelly-submit__stage.is-sending { animation: jellySend 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); }
-@keyframes jellySend {
-  0%   { transform: scale(1, 1); }
-  35%  { transform: scale(1.08, 0.88); }
-  70%  { transform: scale(0.94, 1.08); }
-  100% { transform: scale(1, 1); }
+  justify-self: start;
 }
 @keyframes jellyIdle {
   0%, 100% { transform: scale(1, 1); }

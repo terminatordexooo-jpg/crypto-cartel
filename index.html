@@ -13,8 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js" defer></script>
 </head>
 <body>
 
@@ -244,18 +242,7 @@
           <label><input type="radio" name="tier" value="capo" /> Capo</label>
         </div>
       </label>
-      <div class="jelly-submit">
-        <div class="jelly__stage finale__stage jelly-submit__stage" id="jellyStage" aria-label="Squeeze to send">
-          <canvas id="jellyCanvas" class="jelly__canvas finale__canvas"></canvas>
-          <div id="jellyTrigger" class="jelly__trigger" aria-label="Drag down to send"></div>
-          <div id="jellyLoader" class="jelly__loader">
-            <div class="jelly__loader-bar"></div>
-            <span class="jelly__loader-txt" id="jellyLoaderTxt">0%</span>
-          </div>
-        </div>
-        <p class="jelly-submit__hint">Squeeze to send</p>
-        <button type="submit" id="jellySubmitReal" class="jelly-submit__real" tabindex="-1">Send request</button>
-      </div>
+      <button type="submit" class="btn btn--primary form__submit">Send request</button>
       <p class="form__ok" hidden>Request received. The host will reply within 48h.</p>
     </form>
   </div>

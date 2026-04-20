@@ -41,8 +41,7 @@
   targets.forEach(t => io.observe(t));
 })();
 
-// Jelly Squeeze — vanilla port of the React JellySqueeze component.
-// Image sequence + GSAP Draggable, remapped to emerald via CSS filter.
+// Jelly Squeeze — no-op when the stage isn't on the page.
 (function jellySqueeze() {
   const stage   = document.getElementById("jellyStage");
   const canvas  = document.getElementById("jellyCanvas");
