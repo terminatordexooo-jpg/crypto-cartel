@@ -4,9 +4,9 @@
 (function typeHero() {
   const words = document.querySelectorAll(".hero__word");
   if (!words.length) return;
-  const CHAR_STEP = 0.07;   // seconds between letters
-  const WORD_GAP  = 0.18;   // extra pause between words
-  let delay = 0.15;         // initial lead-in
+  const CHAR_STEP = 0.07;
+  const WORD_GAP  = 0.18;
+  let delay = 0.15;
   words.forEach(word => {
     const text = word.textContent;
     word.textContent = "";
@@ -18,7 +18,6 @@
       word.appendChild(span);
       delay += CHAR_STEP;
     });
-    // trailing blinking cursor on each word while typing
     const cursor = document.createElement("span");
     cursor.className = "hero__cursor";
     cursor.style.animationDelay = (delay - CHAR_STEP).toFixed(2) + "s";
@@ -51,9 +50,48 @@
   setInterval(tick, 1000);
 })();
 
+// public ticket — 1 week timer; at T-0 price flips to $250
+(function publicTicketTimer() {
+  const STORAGE_KEY = "cc.publicPriceDeadline";
+  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+  const el = document.getElementById("publicTimer");
+  if (!el) return;
+
+  let deadline = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
+  if (!deadline || deadline < Date.now()) {
+    deadline = Date.now() + WEEK_MS;
+    localStorage.setItem(STORAGE_KEY, String(deadline));
+  }
+
+  const cells = el.querySelectorAll("[data-unit]");
+  const priceEl = document.querySelector('.ticket__amount[data-unit="price"]');
+  const noteEl  = document.querySelector('.ticket__note');
+  const pad = n => String(n).padStart(2, "0");
+
+  function tick() {
+    const diff = deadline - Date.now();
+    if (diff <= 0) {
+      if (priceEl) priceEl.textContent = "250";
+      if (noteEl)  noteEl.style.display = "none";
+      el.style.display = "none";
+      return;
+    }
+    let left = diff;
+    const d = Math.floor(left / 86400000); left -= d * 86400000;
+    const h = Math.floor(left / 3600000);  left -= h * 3600000;
+    const m = Math.floor(left / 60000);    left -= m * 60000;
+    const s = Math.floor(left / 1000);
+    const values = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+    cells.forEach(c => { c.textContent = values[c.dataset.unit]; });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
 // scroll reveal
 (function reveal() {
-  const targets = document.querySelectorAll(".section, .ticket, .partner, .card, .ticket-preview, .meta, .countdown__cell");
+  const targets = document.querySelectorAll(".section, .ticket, .partner, .card, .cashback__tile, .meta, .countdown__cell");
   targets.forEach(t => t.classList.add("reveal"));
 
   const io = new IntersectionObserver(entries => {
@@ -66,193 +104,6 @@
   }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
 
   targets.forEach(t => io.observe(t));
-})();
-
-// Jelly Squeeze — no-op when the stage isn't on the page.
-(function jellySqueeze() {
-  const stage   = document.getElementById("jellyStage");
-  const canvas  = document.getElementById("jellyCanvas");
-  const trigger = document.getElementById("jellyTrigger");
-  const follow  = document.getElementById("jellyFollow");
-  const loaderTxt = document.getElementById("jellyLoaderTxt");
-  if (!stage || !canvas || !trigger) return;
-
-  const TOTAL_FRAMES = 215;
-  const START_FRAME  = 70;
-  const SENSITIVITY  = 5.2;
-  const SMOOTHING    = 0.11;
-  const BASE_URL     = "https://cerpow.github.io/cerpow-img/jelly/jelly_";
-
-  const state = {
-    images: new Array(TOTAL_FRAMES),
-    loaded: 0,
-    ready: false,
-    currentFrame: -1,
-    dragFrame: START_FRAME,
-    displayFrame: START_FRAME,
-    startTime: 0,
-    rafId: 0,
-    draggable: null,
-    followMouse: false,
-  };
-
-  const ctx = canvas.getContext("2d");
-
-  // 1) Preload image sequence
-  const preload = () => {
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.decoding = "async";
-      img.src = BASE_URL + String(i).padStart(5, "0") + ".jpg";
-      const done = () => {
-        state.loaded++;
-        const pct = Math.round((state.loaded / TOTAL_FRAMES) * 100);
-        if (loaderTxt) loaderTxt.textContent = pct + "%";
-        if (state.loaded === TOTAL_FRAMES) onReady();
-      };
-      img.onload  = done;
-      img.onerror = done;
-      state.images[i] = img;
-    }
-  };
-
-  // 2) Canvas sizing with DPR
-  const resize = () => {
-    const ratio = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight; // stage enforces 4:3 via aspect-ratio
-    canvas.width  = w * ratio;
-    canvas.height = h * ratio;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(ratio, ratio);
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "medium";
-    state.currentFrame = -1; // force redraw
-  };
-
-  // 3) Animation loop
-  const clampFrame = n => Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.floor(n)));
-
-  const tick = () => {
-    const now = performance.now();
-    const dt  = (now - state.startTime) / 1000;
-    state.startTime = now;
-
-    const dampening = 1.0 - Math.exp(-SMOOTHING * 60 * dt);
-    state.displayFrame += (state.dragFrame - state.displayFrame) * dampening;
-
-    const f = clampFrame(state.displayFrame);
-    const img = state.images[f];
-    if (f !== state.currentFrame && img && img.complete && img.naturalWidth) {
-      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-      ctx.drawImage(img, 0, 0, canvas.clientWidth, canvas.clientHeight);
-      state.currentFrame = f;
-    }
-    state.rafId = requestAnimationFrame(tick);
-  };
-
-  // 4) Wire GSAP Draggable
-  const initDraggable = () => {
-    if (!window.gsap || !window.Draggable) return;
-    gsap.registerPlugin(Draggable);
-    gsap.set(canvas, { y: START_FRAME / SENSITIVITY });
-
-    const MAX_Y = (TOTAL_FRAMES - 1) / SENSITIVITY;
-    const ARM_THRESHOLD = 0.7; // squeeze 70% of the way → armed
-    let armed = false;
-
-    state.draggable = Draggable.create(canvas, {
-      trigger: trigger,
-      type: "y",
-      inertia: true,
-      bounds: { minY: 0, maxY: MAX_Y },
-      allowNativeTouchScrolling: false,
-      dragResistance: 0.5,
-      edgeResistance: 1,
-      minDuration: 0.4,
-      onDragStart() {
-        armed = false;
-        stage.classList.remove("is-armed", "is-sending");
-      },
-      onDrag() {
-        state.dragFrame = this.y * SENSITIVITY;
-        const nowArmed = this.y / MAX_Y > ARM_THRESHOLD;
-        if (nowArmed !== armed) {
-          armed = nowArmed;
-          stage.classList.toggle("is-armed", armed);
-        }
-      },
-      onThrowUpdate() { state.dragFrame = this.y * SENSITIVITY; },
-      onDragEnd() {
-        stage.classList.remove("is-armed");
-        if (this.y / MAX_Y > ARM_THRESHOLD) {
-          submitParentForm();
-        }
-      },
-    })[0];
-  };
-
-  // Submit the enclosing form via a squeeze-send pulse, then spring jelly back
-  const submitParentForm = () => {
-    const form = stage.closest("form");
-    if (!form) return;
-    stage.classList.add("is-sending");
-    setTimeout(() => stage.classList.remove("is-sending"), 700);
-    const real = document.getElementById("jellySubmitReal");
-    if (real) real.click(); else form.requestSubmit?.();
-
-    // spring the jelly back to its rest position so it can be used again
-    if (state.draggable) {
-      gsap.to(canvas, {
-        y: START_FRAME / SENSITIVITY,
-        duration: 0.9,
-        ease: "elastic.out(1, 0.55)",
-        onUpdate() {
-          const y = gsap.getProperty(canvas, "y");
-          state.dragFrame = y * SENSITIVITY;
-        },
-        onComplete() { state.draggable.update(); },
-      });
-    }
-  };
-
-  // 5) Mouse-follow mode
-  const onMouseMove = e => {
-    if (!state.followMouse) return;
-    const normY = e.clientY / window.innerHeight;
-    state.dragFrame = normY * (TOTAL_FRAMES - 1);
-  };
-
-  const syncFollow = () => {
-    state.followMouse = !!(follow && follow.checked);
-    stage.classList.toggle("is-follow", state.followMouse);
-    if (!state.draggable) return;
-    if (state.followMouse) {
-      state.draggable.disable();
-    } else {
-      state.draggable.enable();
-      gsap.set(canvas, { y: state.displayFrame / SENSITIVITY });
-      state.draggable.update();
-    }
-  };
-
-  // 6) Ready
-  const onReady = () => {
-    if (state.ready) return;
-    state.ready = true;
-    stage.classList.add("is-ready");
-    resize();
-    initDraggable();
-    syncFollow();
-    state.startTime = performance.now();
-    tick();
-  };
-
-  // kick off
-  preload();
-  window.addEventListener("resize", resize);
-  window.addEventListener("mousemove", onMouseMove);
-  if (follow) follow.addEventListener("change", syncFollow);
 })();
 
 // nav highlight on scroll

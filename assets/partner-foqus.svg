@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="foqusGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#7DE8FF"/>
+<stop offset="0.55" stop-color="#4AB8FF"/>
+<stop offset="1" stop-color="#3A7BFF"/>
+</linearGradient>
+</defs>
+<circle cx="26" cy="26" r="16" stroke="url(#foqusGrad)" stroke-width="6" fill="none"/>
+<rect x="36" y="36" width="20" height="6" rx="3" transform="rotate(45 36 36)" fill="url(#foqusGrad)"/>
+<path d="M15 15 L17 19 L21 17 Z" fill="#BFEBFF"/>
+<path d="M32 10 L33 13 L36 12 Z" fill="#BFEBFF"/>
+</svg>
